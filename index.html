@@ -1,73 +1,213 @@
+<!-- FILE: index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Advancism — Home</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Advancism</title>
   <style>
-.social-links {
-  margin-top: 40px;
-  font-size: 1em;
-}
-.social-links a {
-  color: #ccc;
-  text-decoration: none;
-  margin: 0 10px;
-}
-.social-links a:hover {
-  color: #fff;
-}
-    
-body {
-  min-height: 100vh; /* not fixed height */
-  padding: 30px 20px;
-  background: #111;
-  color: #eee;
-  font-family: 'Futura ND', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* top-aligned */
-  text-align: center;
-}
-
-img {
-  max-width: 200px;
-  margin-bottom: 20px;
-  display: block;
-}
-
-    h1 {
-      font-size: 2em;
-      letter-spacing: 0.1em;
+    :root{
+      --bg:#0b0b0b;
+      --panel:#0f0f0f;
+      --muted:#9aa0a6;
+      --text:#eee;
+      --accent:#c9c9ff;
+      --sidebar-w:220px;
     }
-    p {
-      font-size: 1.2em;
-      max-width: 600px;
+
+    /* Layout */
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:'Futura ND', 'Helvetica Neue', Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      display:grid;
+      grid-template-columns:var(--sidebar-w) 1fr;
+      min-height:100vh;
+    }
+
+    /* Sidebar */
+    .sidebar{
+      background:linear-gradient(180deg,var(--panel), #0b0b0b);
+      padding:28px 18px;
+      box-sizing:border-box;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      border-right:1px solid rgba(255,255,255,0.03);
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:8px;
+    }
+    .brand img{max-width:120px;display:block}
+    .brand h1{font-size:1.05rem;margin:0;letter-spacing:0.06em}
+    .brand p{margin:0;font-size:0.85rem;color:var(--muted)}
+
+    nav{margin-top:6px}
+    nav ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:4px}
+    .nav-link{
+      display:block;
+      padding:10px 12px;
+      color:var(--muted);
+      text-decoration:none;
+      border-radius:8px;
+      font-size:0.95rem;
+      transition:background .12s, color .12s, transform .06s;
+    }
+    .nav-link:hover{background:rgba(255,255,255,0.03); color:var(--text); transform:translateX(2px)}
+    .nav-link.active{background:rgba(200,200,255,0.06); color:var(--accent); font-weight:600}
+
+    /* Push social links to bottom */
+    .sidebar .spacer{flex:1}
+    .social-links{font-size:0.9rem;color:var(--muted)}
+    .social-links a{color:var(--muted);text-decoration:none;margin-right:8px}
+
+    /* Main content */
+    .main{
+      padding:36px 40px;
+      box-sizing:border-box;
+      text-align:left;
+      max-width:980px;
+    }
+    .main h2{margin-top:0}
+    p.lead{color:var(--muted);max-width:70ch}
+
+    /* Responsive: collapse to single column on small screens */
+    @media (max-width:760px){
+      body{grid-template-columns:1fr}
+      .sidebar{flex-direction:row;gap:10px;overflow:auto;padding:14px}
+      nav ul{flex-direction:row}
+      .nav-link{white-space:nowrap;padding:8px 10px}
+      .sidebar .spacer{display:none}
+      .brand h1{display:none}
+      .brand img{max-width:36px}
     }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Advancism Logo" />
-  <h1>ADVANCISM</h1>
-  <p>Progress Requires Sacrifice. Evolution Demands Truth.</p>
-  <p>Technology is the vessel through which we elevate the human condition, cure illness, and realise the next stages in human evolution.</p>
-  <p>Our purpose is to augment mankind - to expand and deepen our understanding of consciousness and the universe. To do this, we must enable merit indiscriminately, empower experts, and embrace the uncomfortable truth of human nature. And we need to do it now.</p>
-  <p>Modern politics is plagued with delusion, identity worship, and intellectual dishonesty. This rigid, absolutist behaviour has polluted the waters of genuine political discourse and obstructed pragmatic progress. It is time to put an end to intellectual tribalism.</p>
-  <p>Humanity Must Advance.</p>
-  <p></p>
+  <aside class="sidebar" aria-label="Main navigation">
+    <div class="brand">
+      <img src="logo.png" alt="Advancism logo">
+      <h1>ADVANCISM</h1>
+      <p>Progress requires sacrifice.</p>
+    </div>
 
-  <div class="social-links">
-  <a href="https://reddit.com/u/AdvancismUK" target="_blank">Reddit</a> |
-  <a href="https://twitter.com/AdvancismUK" target="_blank">X</a> |
-  <a href="https://bsky.app/profile/advancismuk.bsky.social" target="_blank">Bluesky</a> |
-  <a href="https://youtube.com/@AdvancismUK" target="_blank">YouTube</a>
-</div>
+    <nav aria-label="Site pages">
+      <ul>
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="about.html">About</a></li>
+        <li><a class="nav-link" href="politicalviolence.html">Political Violence</a></li>
+        <li><a class="nav-link" href="projects.html">Projects</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
 
-  
-<footer>
-  <p style="color: #555;"><em>Note: This site is currently in development.</em></p>
-</footer>
+    <div class="spacer" aria-hidden="true"></div>
+
+    <div class="social-links">
+      <a href="https://reddit.com/u/AdvancismUK" target="_blank" rel="noopener">Reddit</a>
+      <a href="https://twitter.com/AdvancismUK" target="_blank" rel="noopener">X</a>
+      <a href="https://bsky.app/profile/advancismuk.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <img src="logo.png" alt="Advancism logo" style="max-width:160px;display:none;"> <!-- hidden on desktop; visible if you prefer -->
+    <h2>Welcome</h2>
+    <p class="lead">Technology is the vessel through which we elevate the human condition. This is the Advancism platform — a place for ideas, projects, and rigorous debate.</p>
+
+    <section>
+      <h3>About this site</h3>
+      <p>This simple two-pane layout puts navigation on the left and content on the right. Click "Political Violence" in the left panel to open the dedicated page <em>politicalviolence.html</em>.</p>
+
+      <p style="color:#888;margin-top:20px;"><em>Note:</em> Avoid publishing material that advocates or instructs violent wrongdoing. If the page discusses political violence, keep it analytical, historical, or preventative in tone and include appropriate disclaimers.</p>
+    </section>
+  </main>
+
+  <script>
+    // Highlight the current page link in the sidebar
+    (function(){
+      const current = (location.pathname.split('/').pop() || 'index.html');
+      document.querySelectorAll('.nav-link').forEach(a=>{
+        const href = a.getAttribute('href');
+        if(href === current || (href === 'index.html' && current === '')) a.classList.add('active');
+        if(href === current) a.classList.add('active');
+      });
+    })();
+  </script>
+</body>
+</html>
+
+
+
+<!-- FILE: politicalviolence.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Political Violence — Advancism</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    /* Reuse the same minimal styles so the look matches the homepage. In production you might extract these into a single CSS file and include it from every page. */
+    :root{--bg:#0b0b0b;--panel:#0f0f0f;--muted:#9aa0a6;--text:#eee;--sidebar-w:220px}
+    html,body{height:100%;}
+    body{margin:0;font-family:'Futura ND', Arial, sans-serif;background:var(--bg);color:var(--text);display:grid;grid-template-columns:var(--sidebar-w) 1fr;min-height:100vh}
+    .sidebar{background:var(--panel);padding:28px 18px;display:flex;flex-direction:column;gap:18px;border-right:1px solid rgba(255,255,255,0.03)}
+    .sidebar img{max-width:120px}
+    nav ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:4px}
+    .nav-link{display:block;padding:10px 12px;color:var(--muted);text-decoration:none;border-radius:8px}
+    .nav-link.active{background:rgba(200,200,255,0.06);color:#c9c9ff;font-weight:600}
+    .main{padding:36px 40px;text-align:left;max-width:980px}
+    @media (max-width:760px){body{grid-template-columns:1fr}.sidebar{flex-direction:row;padding:14px}.nav-link{white-space:nowrap}}
+  </style>
+</head>
+<body>
+  <aside class="sidebar" aria-label="Main navigation">
+    <div class="brand">
+      <img src="logo.png" alt="Advancism logo">
+      <h1>ADVANCISM</h1>
+    </div>
+    <nav aria-label="Site pages">
+      <ul>
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="about.html">About</a></li>
+        <li><a class="nav-link" href="politicalviolence.html">Political Violence</a></li>
+        <li><a class="nav-link" href="projects.html">Projects</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <h2>Political Violence</h2>
+    <p class="lead">This page is a neutral, analytical space for examining the phenomenon of political violence: causes, historical examples, legal frameworks, prevention strategies, and the ethical debates surrounding it.</p>
+
+    <section>
+      <h3>What this page should contain</h3>
+      <ul>
+        <li>Clear, factual descriptions and historical case studies.</li>
+        <li>Analysis of root causes (political, social, economic).</li>
+        <li>References to reputable sources (books, papers, official reports).</li>
+        <li>Resources for preventing violence, de-radicalisation, and conflict resolution.</li>
+      </ul>
+
+      <p style="color:#888;"><strong>Disclaimer:</strong> This site does not endorse or provide instructions for violent actions. Material that praises, assists, or incites unlawful violence must not be published.</p>
+    </section>
+
+  </main>
+
+  <script>
+    // Highlight active link
+    (function(){
+      const current = (location.pathname.split('/').pop() || 'index.html');
+      document.querySelectorAll('.nav-link').forEach(a=>{ if(a.getAttribute('href')===current) a.classList.add('active'); });
+    })();
+  </script>
 </body>
 </html>
