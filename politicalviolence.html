@@ -5,20 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Political Violence</title>
   <style>
-body {
-  margin: 0;
-  display: flex;
-  min-height: 100vh;
-  background: #111;
-  color: #eee;
-  font-family: 'Futura ND', sans-serif;
-}
+    /* Reset page */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column; /* vertical stacking: main + footer */
+      background: #111;
+      color: #eee;
+      font-family: 'Futura ND', sans-serif;
+    }
 
-    html {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+    /* Wrap sidebar + content together */
+    .main {
+      display: flex;
+      flex: 1; /* take up all available space */
+    }
 
     /* Sidebar */
     .sidebar {
@@ -33,84 +36,62 @@ body {
       text-decoration: none;
       margin: 10px 0;
     }
+    .sidebar a:hover { color: #fff; }
     .sidebar img {
-    max-width: 150px;  /* adjust to fit nicely */
-    margin-bottom: 20px;
-    display: block;    /* ensures it’s on its own line */
-    }
-
-    .sidebar a:hover {
-      color: #fff;
-    }
-
-
-
-.content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-footer {
-  margin-top: auto;
-  text-align: center;
-  padding: 20px 0;
-  color: #555;
-}
-
-
-footer .social-links {
-  margin-bottom: 10px;
-}
-
-footer p {
-  text-align: center; /* centers the "Note: This site is currently in development." */
-  margin: 0;
-}
-
-
-    img {
-      max-width: 200px;
+      max-width: 150px;
       margin-bottom: 20px;
       display: block;
     }
-    h1 {
-      font-size: 2em;
-      letter-spacing: 0.1em;
+
+    /* Content */
+    .content {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* left-align */
+      text-align: left;
     }
-    p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: 0 0 1em 0; 
+
+    h1 { font-size: 2em; letter-spacing: 0.1em; }
+    p { font-size: 1.2em; max-width: 600px; margin: 0 0 1em 0; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      color: #555;
     }
-    
+    footer .social-links { margin-bottom: 10px; }
+    footer p { margin: 0; }
   </style>
 </head>
 <body>
-  <!-- Sidebar -->
-<div class="sidebar">
-  <img src="logo.png" alt="Advancism Logo" style="max-width:150px; display:block; margin-bottom:20px;">
-  <a href="index.html">Home</a>
-  <a href="politicalviolence.html">Political Violence</a>
-  <a href="page1.html">Page 1</a>
-  <a href="page2.html">Page 2</a>
-</div>
+  <!-- Main (sidebar + content) -->
+  <div class="main">
+    <div class="sidebar">
+      <img src="logo.png" alt="Advancism Logo">
+      <a href="index.html">Home</a>
+      <a href="politicalviolence.html">Political Violence</a>
+      <a href="page1.html">Page 1</a>
+      <a href="page2.html">Page 2</a>
+    </div>
 
-
-<!-- Main content -->
-<div class="content">
-  <h1>Political Violence</h1>
-  <p>Test 2</p>
-
-  <!-- Footer inside content but clearly separated -->
-<footer>
-  <div class="social-links">
-    <a href="https://reddit.com/u/AdvancismUK" target="_blank">Reddit</a> |
-    <a href="https://twitter.com/AdvancismUK" target="_blank">X</a> |
-    <a href="https://bsky.app/profile/advancismuk.bsky.social" target="_blank">Bluesky</a> |
-    <a href="https://youtube.com/@AdvancismUK" target="_blank">YouTube</a>
+    <div class="content">
+      <h1>Political Violence</h1>
+      <p>Test 2</p>
+    </div>
   </div>
-  <p><em>Note: This site is currently in development.</em></p>
-</footer>
-</div>
+
+  <!-- Footer (global, spans across both sidebar + content) -->
+  <footer>
+    <div class="social-links">
+      <a href="https://reddit.com/u/AdvancismUK" target="_blank">Reddit</a> |
+      <a href="https://twitter.com/AdvancismUK" target="_blank">X</a> |
+      <a href="https://bsky.app/profile/advancismuk.bsky.social" target="_blank">Bluesky</a> |
+      <a href="https://youtube.com/@AdvancismUK" target="_blank">YouTube</a>
+    </div>
+    <p><em>Note: This site is currently in development.</em></p>
+  </footer>
 </body>
 </html>
