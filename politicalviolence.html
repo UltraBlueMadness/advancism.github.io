@@ -43,35 +43,45 @@
       display: block;
     }
 
-    /* Content */
-.content {
-  flex: 1;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* keeps h1, p left-aligned */
-  text-align: left;
-}
+/* --------- REPLACE EXISTING footer RULES WITH THIS ---------- */
 
+/* make the footer inside the content an explicit centered flex box */
 .content footer {
-  width: 100%;          /* fill the content column */
-  text-align: center;   /* center links + note */
-  margin-top: auto;     /* push footer to bottom if you want */
-}
-
-
-
-
-    h1 { font-size: 2em; letter-spacing: 0.1em; }
-    p { font-size: 1.2em; max-width: 600px; margin: 0 0 1em 0; }
-
-    /* Footer */
-footer {
-  text-align: center;
+  width: 100%;                 /* span the content column only */
+  display: flex;
+  flex-direction: column;      /* stack social links, then note */
+  align-items: center;         /* center horizontally */
+  justify-content: center;     /* center vertically inside footer box */
+  margin-top: auto;            /* push footer to bottom of .content */
   padding: 20px 0;
+  box-sizing: border-box;
   color: #555;
-  width: 100%;   /* make sure it spans the full window */
 }
+
+/* center the links and allow them to wrap if narrow screens */
+.content footer .social-links {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* the single-line note below the links */
+.content footer p {
+  margin: 8px 0 0 0;
+  text-align: center;
+  color: #555;
+  font-style: italic;
+}
+
+/* remove or override any generic footer rules that may fight this */
+footer { /* optional safety override - less specific than .content footer */
+  text-align: inherit;
+  width: auto;
+}
+
+    
     footer .social-links { margin-bottom: 10px; }
     footer p { margin: 0; }
   </style>
