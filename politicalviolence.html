@@ -5,14 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Political Violence</title>
   <style>
-    body {
-      margin: 0;
-      display: flex;
-      min-height: 100vh;
-      background: #111;
-      color: #eee;
-      font-family: 'Futura ND', sans-serif;
-    }
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: row; /* default, keep sidebar/content side by side */
+  min-height: 100vh;
+  background: #111;
+  color: #eee;
+  font-family: 'Futura ND', sans-serif;
+}
+
+    html {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
     /* Sidebar */
     .sidebar {
@@ -108,8 +115,7 @@ footer p {
     <a href="https://twitter.com/AdvancismUK" target="_blank">X</a> |
     <a href="https://bsky.app/profile/advancismuk.bsky.social" target="_blank">Bluesky</a> |
     <a href="https://youtube.com/@AdvancismUK" target="_blank">YouTube</a>
-    <p><em>Note: This site is currently in development.</em></p>
-  </div>
+  <p><em>Note: This site is currently in development.</em></p>
 </footer>
 </div>
 </body>
